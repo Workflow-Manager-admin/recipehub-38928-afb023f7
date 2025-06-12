@@ -1,0 +1,404 @@
+/* RecipeHub Light Theme - App Styles */
+:root {
+  --primary: #FF7043;
+  --secondary: #FFF3E0;
+  --accent: #388E3C;
+  --text-color: #222;
+  --border-color: #e0e0e0;
+  --shadow-light: 0 2px 12px rgba(60, 60, 60, 0.06);
+}
+
+body, .app.recipehub-app {
+  background: #fff;
+  color: var(--text-color);
+  font-family: 'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+/* App bar (top navigation) */
+.recipehub-navbar {
+  width: 100vw;
+  left: 0; top: 0;
+  position: sticky;
+  z-index: 200;
+  height: 64px;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.07);
+  display: flex;
+  align-items: center;
+  padding: 0px 0px;
+}
+
+.recipehub-navbar-content {
+  width: 100vw;
+  max-width: 1024px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 0 2vw;
+  min-height: 56px;
+}
+
+.recipehub-main {
+  max-width: 900px;
+  margin: 0 auto 70px auto;
+  padding-top: 86px;
+  padding-bottom: 32px;
+  width: 100vw;
+}
+
+.recipehub-searchbar-ctr {
+  width: 100%;
+  margin: 0 auto 18px auto;
+  padding: 0 8px;
+  display: flex;
+  justify-content: center;
+}
+.recipehub-searchbar {
+  width: 100%;
+  max-width: 460px;
+  padding: 10px 14px;
+  font-size: 1.1rem;
+  border-radius: 23px;
+  border: 1.5px solid var(--border-color);
+  outline: none;
+  transition: border 0.2s;
+  box-shadow: 0 2px 6px 0 rgba(255,112,67,0.04);
+}
+.recipehub-searchbar:focus {
+  border: 1.5px solid var(--accent);
+}
+
+.recipehub-carousel {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  overflow-x: scroll;
+  margin-bottom: 18px;
+  padding: 10px 0;
+  scroll-snap-type: x mandatory;
+}
+.recipehub-carousel::-webkit-scrollbar { height: 0px }
+
+.recipehub-carousel-slide {
+  min-width: 192px;
+  min-height: 116px;
+  height: 116px;
+  border-radius: 16px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  scroll-snap-align: center;
+  box-shadow: 0 2px 12px rgba(60,60,60,0.08);
+  transition: transform 0.10s;
+}
+.recipehub-carousel-slide:hover {
+  transform: scale(1.04);
+  box-shadow: 0 4px 18px rgba(255,112,67,0.15);
+}
+.recipehub-carousel-title {
+  position: absolute;
+  left: 0; bottom: 0; width: 100%;
+  padding: 10px 0 8px 14px;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(0deg,rgba(34,34,34,0.55) 75%,rgba(0,0,0,0));
+  border-radius: 0 0 16px 16px;
+  font-size: 1.1rem;
+  letter-spacing: 0.03em;
+}
+
+/* Categories */
+.recipehub-categories {
+  display: flex;
+  flex-direction: row;
+  gap: 13px;
+  padding-bottom: 14px;
+  margin-bottom: 10px;
+  overflow-x: auto;
+}
+.recipehub-category {
+  background: var(--secondary);
+  padding: 9px 15px 9px 11px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(255,112,67,0.07);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.02rem;
+  border: 1.5px solid transparent;
+  transition: background 0.14s, border-color 0.12s;
+}
+.recipehub-category.selected,
+.recipehub-category:hover {
+  background: #ffd1b5;
+  border-color: var(--primary);
+}
+.recipehub-category-icon {
+  font-size: 1.2rem;
+  margin-right: 4px;
+}
+.recipehub-category-label {
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* Recipe List */
+.recipehub-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+.recipehub-list-card {
+  display: flex;
+  align-items: flex-start;
+  background: var(--secondary);
+  border-radius: 12px;
+  box-shadow: var(--shadow-light);
+  padding: 10px;
+  cursor: pointer;
+  gap: 16px;
+  border: 1px solid var(--border-color);
+  transition: background 0.1s, box-shadow 0.16s;
+}
+.recipehub-list-card:hover {
+  background: #ffe6d5;
+  box-shadow: 0 2px 14px 0 rgba(255,112,67,0.08);
+}
+.recipehub-list-img {
+  width: 74px;
+  height: 74px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-right: 9px;
+  flex-shrink: 0;
+}
+.recipehub-list-info {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.recipehub-list-title {
+  font-size: 1.16rem;
+  font-weight: 600;
+  color: #311;
+}
+.recipehub-list-desc {
+  color: #7e3700;
+  font-size: 1.01rem;
+}
+.recipehub-list-meta {
+  display: flex;
+  align-items: center;
+  font-size: 0.97rem;
+  margin-top: 1px;
+}
+.recipehub-list-rating {
+  color: var(--accent);
+  font-weight: 500;
+  font-size: 0.94rem;
+}
+
+/* Recipe Details */
+.recipehub-detail-backdrop {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(44,44,44,0.23);
+  z-index: 10002;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.recipehub-detail-container {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 32px rgba(60,60,60,0.20);
+  max-width: 420px;
+  width: 96vw;
+  min-height: 330px;
+  max-height: 90vh;
+  padding: 0 0 12px 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.21s cubic-bezier(.27,1.1,.66,0.99);
+}
+
+@keyframes slideUp {
+  from { transform: translateY(720px);}
+  to   { transform: translateY(0);}
+}
+
+.recipehub-detail-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 20px 0 18px;
+}
+.recipehub-detail-image {
+  width: 94px; height: 94px; border-radius: 10px; object-fit: cover;
+  box-shadow: 0 2px 8px #ffe6d5c8;
+  margin-right: 10px;
+}
+.recipehub-detail-name {
+  font-weight: 800;
+  font-size: 1.28rem;
+  margin-bottom: 2px;
+}
+.recipehub-detail-cat {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: #df7700;
+}
+.recipehub-detail-rating {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.recipehub-detail-close {
+  margin-left: auto;
+  border: none;
+  background: transparent;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: #d4450d;
+  font-weight: 600;
+}
+
+.recipehub-detail-tabs {
+  display: flex;
+  border-bottom: 2px solid #ffb39d;
+  margin: 5px 20px 0 20px;
+  gap: 0;
+}
+.recipehub-detail-tabs button {
+  background: transparent;
+  border: none;
+  font-size: 1.07rem;
+  font-weight: 500;
+  color: #a77155;
+  padding: 10px 16px 7px 16px;
+  margin: 0;
+  cursor: pointer;
+  outline: none;
+  border-bottom: 2.5px solid transparent;
+  transition: color 0.1s, border-bottom 0.14s;
+}
+.recipehub-detail-tabs .active {
+  color: var(--primary);
+  border-bottom: 2.5px solid var(--primary);
+}
+
+.recipehub-detail-tabpanel {
+  padding: 12px 26px 0 26px;
+  min-height: 75px;
+  font-size: 1.05rem;
+  color: #333;
+}
+
+/* Recipe detail actions */
+.recipehub-detail-actions {
+  display: flex;
+  gap: 10px;
+  padding: 7px 26px 0 26px;
+  justify-content: flex-end;
+}
+.recipehub-detail-actions .btn {
+  font-size: 1.02rem;
+}
+.recipehub-comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.recipehub-comment-form textarea {
+  border-radius: 7px;
+  border: 1.2px solid #ffe0d3;
+  font-size: 0.99rem;
+  min-width: 90%;
+  resize: vertical;
+  padding: 5px 8px;
+}
+
+/* Bottom Navigation Bar */
+.recipehub-bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 0 2px 0;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 59px;
+  background: #fff;
+  box-shadow: 0 -2px 24px 0 rgba(255,112,67,0.08);
+  border-top: 1.9px solid #ffd5c3;
+  z-index: 10010;
+}
+.recipehub-bottom-nav button {
+  background: none;
+  border: none;
+  outline: none;
+  color: #888;
+  font-size: 1.2rem;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px 7px 0 7px;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background 0.12s, color 0.12s;
+  min-width: 58px;
+  cursor: pointer;
+}
+.recipehub-bottom-nav button.active,
+.recipehub-bottom-nav button:hover {
+  color: var(--primary);
+  background: #fff3e0;
+}
+.recipehub-bottom-icon {
+  font-size: 1.39rem;
+  line-height: 1.27;
+}
+.recipehub-bottom-label {
+  font-size: 0.99rem;
+  line-height: 1;
+  margin-top: 1px;
+}
+
+/* General btn styles */
+.btn {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn:hover {
+  background-color: var(--accent);
+  color: #fff;
+}
+.btn-large {
+  padding: 12px 24px;
+  font-size: 1.1rem;
+}
+
+/* Responsive fixes */
+@media (max-width: 570px) {
+  .recipehub-main {padding-top: 72px;}
+  .recipehub-detail-container {max-width: 98vw;}
+  .recipehub-list-card {padding: 5px;}
+}
